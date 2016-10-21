@@ -1,0 +1,45 @@
+[
+
+  {
+    "id": 19,
+    "are you odd": true,
+    "are you divisible by 3": false,
+    "are you a prime number": true,
+    "is your square root a whole number": false
+  }  
+
+  {
+    "id": 8,
+    "are you odd": false,
+    "are you divisible by 3": false,
+    "are you a prime number": false,
+    "is your square root a whole number": false
+  }  
+
+  {
+    "id": 9,
+    "are you odd": true,
+    "are you divisible by 3": true,
+    "are you a prime number": false,
+    "is your square root a whole number": true
+  }  
+
+  {
+    "id": 7,
+    "are you odd": true,
+    "are you divisible by 3": false,
+    "are you a prime number": true,
+    "is your square root a whole number": false
+  }  
+
+  {
+    "id": 16,
+    "are you odd": false,
+    "are you divisible by 3": false,
+    "are you a prime number": false,
+    "is your square root a whole number": true
+  }
+
+
+
+]
