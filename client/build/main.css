@@ -14,3 +14,20 @@ img{
   display: inline-block;
   float: left;
 }
+
+ul{
+  list-style: none;
+}
+
+#clueBox{
+/*  display: block;*/
+  margin-top: 25px;
+}
+
+.numberList{
+  width: 95%;
+}
+
+#clue-response{
+
+}

@@ -2,42 +2,56 @@
 
   {
     "id": 19,
-    "are you odd": true,
-    "are you divisible by 3": false,
-    "are you a prime number": true,
-    "is your square root a whole number": false
-  }  
+    "src": "./images/number_19.jpg",
+    "oddQ": "True",
+    "threeQ": "False",
+    "primeQ": "True",
+    "squareRootQ": "False"
+  },  
 
   {
     "id": 8,
-    "are you odd": false,
-    "are you divisible by 3": false,
-    "are you a prime number": false,
-    "is your square root a whole number": false
-  }  
+    "src": "./images/number_08.jpg",
+    "oddQ": "False",
+    "threeQ": "False",
+    "primeQ": "False",
+    "squareRootQ": "False"
+  },  
 
   {
     "id": 9,
-    "are you odd": true,
-    "are you divisible by 3": true,
-    "are you a prime number": false,
-    "is your square root a whole number": true
-  }  
+    "src": "./images/number_09.jpg",
+    "oddQ": "True",
+    "threeQ": "True",
+    "primeQ": "False",
+    "squareRootQ": "True"
+  },  
 
   {
     "id": 7,
-    "are you odd": true,
-    "are you divisible by 3": false,
-    "are you a prime number": true,
-    "is your square root a whole number": false
-  }  
+    "src": "./images/number_07.jpg",
+    "oddQ": "True",
+    "threeQ": "False",
+    "primeQ": "True",
+    "squareRootQ": "False"
+  },  
 
   {
     "id": 16,
-    "are you odd": false,
-    "are you divisible by 3": false,
-    "are you a prime number": false,
-    "is your square root a whole number": true
+    "src": "./images/number_16.jpg",
+    "oddQ": "False",
+    "threeQ": "False",
+    "primeQ": "False",
+    "squareRootQ": "True"
+  },
+
+  {
+    "id": 1,
+    "src": "./images/number_01.jpg",
+    "oddQ": "True",
+    "threeQ": "False",
+    "primeQ": "False",
+    "squareRootQ": "False"
   }
 
 

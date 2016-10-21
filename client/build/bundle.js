@@ -48,22 +48,10 @@
 	
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
+	var GameBox = __webpack_require__(159);
 	
 	window.onload = function () {
-	  ReactDOM.render(React.createElement(
-	    'div',
-	    null,
-	    React.createElement(
-	      'h1',
-	      null,
-	      ' Guess The Number '
-	    ),
-	    React.createElement('img', { src: './images/number_19.jpg' }),
-	    React.createElement('img', { src: './images/number_07.jpg' }),
-	    React.createElement('img', { src: './images/number_08.jpg' }),
-	    React.createElement('img', { src: './images/number_09.jpg' }),
-	    React.createElement('img', { src: './images/number_16.jpg' })
-	  ), document.getElementById('app'));
+	  ReactDOM.render(React.createElement(GameBox, null), document.getElementById('app'));
 	};
 
 /***/ },
@@ -19759,6 +19747,409 @@
 	
 	module.exports = __webpack_require__(3);
 
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var NumbersList = __webpack_require__(160);
+	var ClueBox = __webpack_require__(162);
+	var ResultBox = __webpack_require__(165);
+	
+	var GameBox = React.createClass({
+	  displayName: 'GameBox',
+	
+	
+	  getInitialState: function getInitialState() {
+	    return {
+	      numbers: [],
+	      answerNumber: null
+	    };
+	  },
+	
+	  componentDidMount: function componentDidMount() {
+	    var url = "api/numbers";
+	    var request = new XMLHttpRequest();
+	    request.open('GET', url);
+	    request.onload = function () {
+	      console.log(request.responseText);
+	      var data = JSON.parse(request.responseText);
+	      this.setState({ numbers: data });
+	    }.bind(this);
+	    request.send();
+	  },
+	
+	  updateAnswerNumber: function updateAnswerNumber(givenNumber) {
+	    console.log("updateAnswerNumber has been called");
+	    this.setState({ answerNumber: givenNumber });
+	  },
+	
+	  componentDidUpdate: function componentDidUpdate() {
+	    console.log("componentDidUpdate has been called");
+	    if (!this.state.answerNumber) {
+	      var chosenNumber = this.state.numbers[Math.floor(Math.random() * this.state.numbers.length)];
+	      console.log("chosenNumber is ", chosenNumber);
+	      this.updateAnswerNumber(chosenNumber);
+	    }
+	  },
+	
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h1',
+	        null,
+	        'Guess The Number'
+	      ),
+	      React.createElement(NumbersList, { numbers: this.state.numbers }),
+	      React.createElement(ClueBox, { numbers: this.state.numbers, answerNumber: this.state.answerNumber }),
+	      React.createElement(ResultBox, { answerNumber: this.state.answerNumber })
+	    );
+	  }
+	
+	});
+	
+	module.exports = GameBox;
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var NumberImage = __webpack_require__(161);
+	
+	var NumbersList = function NumbersList(props) {
+	
+	  var numberNodes = props.numbers.map(function (number, index) {
+	    console.log("number ", number);
+	    return React.createElement(
+	      'li',
+	      { key: index },
+	      React.createElement(NumberImage, { number: number })
+	    );
+	  });
+	
+	  return React.createElement(
+	    'div',
+	    { className: 'number-list' },
+	    React.createElement(
+	      'ul',
+	      { className: 'custom-counter' },
+	      numberNodes
+	    )
+	  );
+	};
+	
+	module.exports = NumbersList;
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var React = __webpack_require__(1);
+	
+	var NumberImage = React.createClass({
+	  displayName: "NumberImage",
+	
+	
+	  clicked: function clicked() {
+	    var image = document.getElementById(this.props.number.id);
+	    image.style.opacity = "0.2";
+	  },
+	
+	  render: function render() {
+	    return React.createElement("img", { src: this.props.number.src, onClick: this.clicked, id: this.props.number.id });
+	  }
+	
+	});
+	
+	module.exports = NumberImage;
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var ClueSelector = __webpack_require__(163);
+	
+	var ClueBox = React.createClass({
+	  displayName: 'ClueBox',
+	
+	
+	  getInitialState: function getInitialState() {
+	    return {
+	      numbers: null,
+	      answerNumber: null
+	    };
+	  },
+	
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    this.setState({
+	      numbers: nextProps.numbers,
+	      answerNumber: nextProps.answerNumber
+	    });
+	  },
+	
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { id: 'clue-box' },
+	      React.createElement(
+	        'h3',
+	        null,
+	        'Pick a clue'
+	      ),
+	      React.createElement(ClueSelector, { answerNumber: this.state.answerNumber })
+	    );
+	  }
+	
+	});
+	
+	module.exports = ClueBox;
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var React = __webpack_require__(1);
+	var ClueAnswerBox = __webpack_require__(164);
+	
+	var ClueSelector = React.createClass({
+	  displayName: "ClueSelector",
+	
+	
+	  getInitialState: function getInitialState() {
+	    return {
+	      response: null
+	    };
+	  },
+	
+	  handleChange: function handleChange(event) {
+	    var targetQuestion = event.target.value;
+	    var targetQuestionAnswer = this.props.answerNumber[targetQuestion];
+	    console.log("Target Question is", targetQuestion);
+	    console.log("Target Question answer is", targetQuestionAnswer);
+	    console.log(this.props.answerNumber[targetQuestion]);
+	    console.log("props answer value is", this.props.answerNumber.oddQ);
+	    this.setState({ response: targetQuestionAnswer });
+	  },
+	
+	  render: function render() {
+	    return React.createElement(
+	      "div",
+	      null,
+	      React.createElement(
+	        "select",
+	        { id: "clue-selector", onChange: this.handleChange },
+	        React.createElement(
+	          "option",
+	          { selected: true, disabled: true },
+	          "Choose a clue..."
+	        ),
+	        React.createElement(
+	          "option",
+	          { id: "primeQues", value: "primeQ" },
+	          "Is it a prime number?"
+	        ),
+	        React.createElement(
+	          "option",
+	          { id: "threeQues", value: "threeQ" },
+	          "Is it divisible by 3?"
+	        ),
+	        React.createElement(
+	          "option",
+	          { id: "oddQues", value: "oddQ" },
+	          "Is it an odd number?"
+	        ),
+	        React.createElement(
+	          "option",
+	          { id: "squareRootQues", value: "squareRootQ" },
+	          "Is its square root an integer?"
+	        )
+	      ),
+	      React.createElement(ClueAnswerBox, { response: this.state.response })
+	    );
+	  }
+	});
+	
+	module.exports = ClueSelector;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var React = __webpack_require__(1);
+	
+	var ClueAnswerBox = function ClueAnswerBox(props) {
+	
+	  console.log("props.response of ClueAnswerBox is", props.response);
+	
+	  if (!props.response) {
+	    return React.createElement(
+	      "h4",
+	      null,
+	      "  "
+	    );
+	  }
+	
+	  return React.createElement(
+	    "h3",
+	    { id: "clue-response" },
+	    props.response
+	  );
+	};
+	
+	module.exports = ClueAnswerBox;
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var ResultText = __webpack_require__(166);
+	var GuessBox = __webpack_require__(167);
+	
+	var ResultBox = React.createClass({
+	  displayName: 'ResultBox',
+	
+	
+	  getInitialState: function getInitialState() {
+	    return {
+	      answerNumber: null,
+	      result: null
+	    };
+	  },
+	
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    this.setState({
+	      answerNumber: nextProps.answerNumber
+	    });
+	    console.log("Result box answerNumber", nextProps.answerNumber);
+	  },
+	
+	  workOutResult: function workOutResult(guess) {
+	    console.log("work out result has been called");
+	    var resultText = null;
+	    if (guess === this.state.answerNumber.id.toString()) {
+	      resultText = "You're Right";
+	      this.setState({ result: resultText });
+	    } else {
+	      resultText = "You're Wrong";
+	      this.setState({ result: resultText });
+	      console.log("Result is ", resultText);
+	    }
+	  },
+	
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { id: 'clue-box' },
+	      React.createElement(
+	        'h3',
+	        null,
+	        'Make a guess'
+	      ),
+	      React.createElement(GuessBox, { answerNumber: this.state.answerNumber, getResult: this.workOutResult }),
+	      React.createElement(ResultText, { result: this.state.result })
+	    );
+	  }
+	
+	});
+	
+	module.exports = ResultBox;
+
+/***/ },
+/* 166 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var React = __webpack_require__(1);
+	
+	var ResultText = function ResultText(props) {
+	
+	  console.log("props.response of ResultText is", props.result);
+	
+	  if (!props.result) {
+	    return React.createElement(
+	      "h4",
+	      null,
+	      "  "
+	    );
+	  }
+	
+	  return React.createElement(
+	    "h2",
+	    { id: "response-text" },
+	    props.result
+	  );
+	};
+	
+	module.exports = ResultText;
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var GuessBox = React.createClass({
+	  displayName: 'GuessBox',
+	
+	
+	  getInitialState: function getInitialState() {
+	    return {
+	      answerNumber: null,
+	      result: null
+	    };
+	  },
+	
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    this.setState({
+	      answerNumber: nextProps.answerNumber
+	    });
+	  },
+	
+	  handleGuess: function handleGuess() {
+	    var guess = document.getElementById('playerGuess').value;
+	    console.log("Player guess is, ", guess);
+	    this.props.getResult(guess);
+	  },
+	
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { id: 'clue-box' },
+	      React.createElement('input', { id: 'playerGuess', placeholder: 'Make a guess' }),
+	      React.createElement(
+	        'button',
+	        { onClick: this.handleGuess },
+	        'Am I right?!'
+	      )
+	    );
+	  }
+	
+	});
+	
+	module.exports = GuessBox;
 
 /***/ }
 /******/ ]);
