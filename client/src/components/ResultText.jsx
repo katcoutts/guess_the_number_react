@@ -11,7 +11,7 @@ var ResultText = function( props ) {
 
 
   return (
-    <h1 id="response-text">{props.result}</h1>
+    <h2 className="response-text">{props.result}</h2>
   )
 
 

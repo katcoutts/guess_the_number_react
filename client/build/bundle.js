@@ -20120,8 +20120,8 @@
 	  }
 	
 	  return React.createElement(
-	    "h1",
-	    { id: "response-text" },
+	    "h2",
+	    { className: "response-text" },
 	    props.result
 	  );
 	};

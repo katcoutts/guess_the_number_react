@@ -98,8 +98,13 @@ button:focus {
 .new-game-button {
   display: inline-block;
   margin-left: 100px;
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 20px;
   font-size: 20px;
   background-color: #E71D36;
+}
+
+.response-text{
+  font-size: 30px;
+  color: #E71D36;
 }
