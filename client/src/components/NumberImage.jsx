@@ -1,15 +1,21 @@
 var React = require('react');
+var classNames = require('classnames');
 
 var NumberImage = React.createClass({
 
+  getInitialState: function(){
+    return {selected: false}
+  },
+
   clicked: function(){
-    var image = document.getElementById(this.props.number.id);
-    image.style.opacity = "0.2";
+    var setSelected = !this.state.selected;
+    this.setState({selected: setSelected});
   },
 
   render: function(){
+    var classes = classNames({selected: this.state.selected});
     return (
-     <img src={this.props.number.src} onClick = {this.clicked} id={this.props.number.id}></img>
+     <img className={classes} src={this.props.number.src} onClick = {this.clicked} id={this.props.number.id}></img>
   )
 }
 

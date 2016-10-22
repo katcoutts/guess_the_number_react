@@ -28,6 +28,6 @@ ul{
   width: 95%;
 }
 
-#clue-response{
-
+.selected{
+ opacity: 0.2;
 }
