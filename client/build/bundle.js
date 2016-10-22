@@ -19796,6 +19796,10 @@
 	    }
 	  },
 	
+	  handleClick: function handleClick() {
+	    window.location.reload();
+	  },
+	
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -19807,7 +19811,12 @@
 	      ),
 	      React.createElement(NumbersList, { numbers: this.state.numbers }),
 	      React.createElement(ClueBox, { numbers: this.state.numbers, answerNumber: this.state.answerNumber }),
-	      React.createElement(ResultBox, { answerNumber: this.state.answerNumber })
+	      React.createElement(ResultBox, { answerNumber: this.state.answerNumber }),
+	      React.createElement(
+	        'button',
+	        { onClick: this.handleClick, className: 'new-game-button' },
+	        'New Game'
+	      )
 	    );
 	  }
 	
@@ -19909,9 +19918,9 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      { id: 'clue-box' },
+	      { className: 'clue-box' },
 	      React.createElement(
-	        'h3',
+	        'h2',
 	        null,
 	        'Pick a clue'
 	      ),
@@ -19958,7 +19967,7 @@
 	      null,
 	      React.createElement(
 	        "select",
-	        { id: "clue-selector", onChange: this.handleChange },
+	        { onChange: this.handleChange },
 	        React.createElement(
 	          "option",
 	          { selected: true, disabled: true },
@@ -19966,23 +19975,33 @@
 	        ),
 	        React.createElement(
 	          "option",
-	          { id: "primeQues", value: "primeQ" },
+	          { value: "primeQ" },
 	          "Is it a prime number?"
 	        ),
 	        React.createElement(
 	          "option",
-	          { id: "threeQues", value: "threeQ" },
+	          { value: "threeQ" },
 	          "Is it divisible by 3?"
 	        ),
 	        React.createElement(
 	          "option",
-	          { id: "oddQues", value: "oddQ" },
+	          { value: "oddQ" },
 	          "Is it an odd number?"
 	        ),
 	        React.createElement(
 	          "option",
-	          { id: "squareRootQues", value: "squareRootQ" },
+	          { value: "squareRootQ" },
 	          "Is its square root an integer?"
+	        ),
+	        React.createElement(
+	          "option",
+	          { value: "letterSQ" },
+	          "Does it start with the letter S?"
+	        ),
+	        React.createElement(
+	          "option",
+	          { value: "octagonQ" },
+	          "Is it bigger than the number of sides of an octagon?"
 	        )
 	      ),
 	      React.createElement(ClueAnswerBox, { response: this.state.response })
@@ -20065,9 +20084,9 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      { id: 'clue-box' },
+	      { className: 'result-box' },
 	      React.createElement(
-	        'h3',
+	        'h2',
 	        null,
 	        'Make a guess'
 	      ),
@@ -20101,7 +20120,7 @@
 	  }
 	
 	  return React.createElement(
-	    "h2",
+	    "h1",
 	    { id: "response-text" },
 	    props.result
 	  );
@@ -20144,7 +20163,7 @@
 	    return React.createElement(
 	      'div',
 	      { id: 'guess-box' },
-	      React.createElement('input', { id: 'playerGuess', placeholder: 'Make a guess' }),
+	      React.createElement('input', { id: 'playerGuess', placeholder: 'Enter a guess' }),
 	      React.createElement(
 	        'button',
 	        { onClick: this.handleGuess },

@@ -23,12 +23,15 @@ var ClueSelector = React.createClass({
   render: function(){
     return (  
     <div>   
-      <select id="clue-selector" onChange={this.handleChange}>
+      <select onChange={this.handleChange}>
         <option selected disabled>Choose a clue...</option>
-        <option id="primeQues" value="primeQ">Is it a prime number?</option>
-        <option id="threeQues" value="threeQ">Is it divisible by 3?</option>
-        <option id="oddQues" value="oddQ">Is it an odd number?</option>
-        <option id="squareRootQues" value="squareRootQ">Is its square root an integer?</option>
+        <option value="primeQ">Is it a prime number?</option>
+        <option value="threeQ">Is it divisible by 3?</option>
+        <option value="oddQ">Is it an odd number?</option>
+        <option value="squareRootQ">Is its square root an integer?</option>
+        <option value="letterSQ">Does it start with the letter S?</option>
+        <option value="octagonQ">Is it bigger than the number of sides of an octagon?</option>
+
       </select>
       <ClueAnswerBox response = {this.state.response}/>
     </div>

@@ -34,8 +34,8 @@ var ResultBox = React.createClass({
 
   render: function() {
     return (
-      <div id="clue-box">
-        <h3>Make a guess</h3>
+      <div className="result-box">
+        <h2>Make a guess</h2>
         <GuessBox answerNumber = {this.state.answerNumber} getResult = {this.workOutResult}/>
         <ResultText result = {this.state.result}/>
       </div>

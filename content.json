@@ -3,55 +3,100 @@
   {
     "id": 19,
     "src": "./images/number_19.jpg",
-    "oddQ": "True",
-    "threeQ": "False",
-    "primeQ": "True",
-    "squareRootQ": "False"
+    "oddQ": "Yes",
+    "threeQ": "No",
+    "primeQ": "Yes",
+    "squareRootQ": "No",
+    "letterSQ": "No",
+    "octagonQ": "Yes"
   },  
 
   {
     "id": 8,
     "src": "./images/number_08.jpg",
-    "oddQ": "False",
-    "threeQ": "False",
-    "primeQ": "False",
-    "squareRootQ": "False"
+    "oddQ": "No",
+    "threeQ": "No",
+    "primeQ": "No",
+    "squareRootQ": "No",
+    "letterSQ": "No",
+    "octagonQ": "No"
   },  
 
   {
     "id": 9,
     "src": "./images/number_09.jpg",
-    "oddQ": "True",
-    "threeQ": "True",
-    "primeQ": "False",
-    "squareRootQ": "True"
+    "oddQ": "No",
+    "threeQ": "Yes",
+    "primeQ": "No",
+    "squareRootQ": "Yes",
+    "letterSQ": "No",
+    "octagonQ": "Yes"
   },  
 
   {
     "id": 7,
     "src": "./images/number_07.jpg",
-    "oddQ": "True",
-    "threeQ": "False",
-    "primeQ": "True",
-    "squareRootQ": "False"
+    "oddQ": "Yes",
+    "threeQ": "No",
+    "primeQ": "Yes",
+    "squareRootQ": "No",
+    "letterSQ": "Yes",
+    "octagonQ": "No"
   },  
 
   {
     "id": 16,
     "src": "./images/number_16.jpg",
-    "oddQ": "False",
-    "threeQ": "False",
-    "primeQ": "False",
-    "squareRootQ": "True"
+    "oddQ": "No",
+    "threeQ": "No",
+    "primeQ": "No",
+    "squareRootQ": "Yes",
+    "letterSQ": "Yes",
+    "octagonQ": "Yes"
   },
 
   {
     "id": 1,
     "src": "./images/number_01.jpg",
-    "oddQ": "True",
-    "threeQ": "False",
-    "primeQ": "False",
-    "squareRootQ": "False"
+    "oddQ": "Yes",
+    "threeQ": "No",
+    "primeQ": "No",
+    "squareRootQ": "No",
+    "letterSQ": "No",
+    "octagonQ": "No"
+  },
+
+  {
+    "id": 70,
+    "src": "./images/number_70.jpg",
+    "oddQ": "No",
+    "threeQ": "No",
+    "primeQ": "No",
+    "squareRootQ": "No",
+    "letterSQ": "Yes",
+    "octagonQ": "Yes"
+  },
+
+  {
+    "id": 18,
+    "src": "./images/number_18.jpg",
+    "oddQ": "No",
+    "threeQ": "Yes",
+    "primeQ": "No",
+    "squareRootQ": "No",
+    "letterSQ": "No",
+    "octagonQ": "Yes"
+  },
+
+  {
+    "id": 21,
+    "src": "./images/number_21.jpg",
+    "oddQ": "Yes",
+    "threeQ": "Yes",
+    "primeQ": "No",
+    "squareRootQ": "No",
+    "letterSQ": "No",
+    "octagonQ": "Yes"
   }
 
 

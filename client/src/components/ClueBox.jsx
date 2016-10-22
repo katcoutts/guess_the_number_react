@@ -20,8 +20,8 @@ var ClueBox = React.createClass({
 
   render: function() {
     return (
-      <div id="clue-box">
-        <h3>Pick a clue</h3>
+      <div className="clue-box">
+        <h2>Pick a clue</h2>
         <ClueSelector answerNumber = {this.state.answerNumber}/>
       </div>
       )

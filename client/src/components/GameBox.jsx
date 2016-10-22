@@ -38,6 +38,10 @@ var GameBox = React.createClass({
     }
   },
 
+  handleClick: function(){
+    window.location.reload()
+  },
+
 
 
   render: function() {
@@ -47,6 +51,7 @@ var GameBox = React.createClass({
         <NumbersList numbers = {this.state.numbers} />
         <ClueBox numbers = {this.state.numbers} answerNumber = {this.state.answerNumber} />
         <ResultBox answerNumber = {this.state.answerNumber} />
+        <button onClick={this.handleClick} className="new-game-button">New Game</button>
       </div>
       )
   }
