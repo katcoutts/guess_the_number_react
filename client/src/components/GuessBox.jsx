@@ -23,7 +23,7 @@ var GuessBox = React.createClass({
 
   render: function() {
     return (
-      <div id="clue-box">
+      <div id="guess-box">
         <input id="playerGuess" placeholder="Make a guess"></input>
         <button onClick = {this.handleGuess}>Am I right?!</button>
       </div>

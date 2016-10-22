@@ -20143,7 +20143,7 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      { id: 'clue-box' },
+	      { id: 'guess-box' },
 	      React.createElement('input', { id: 'playerGuess', placeholder: 'Make a guess' }),
 	      React.createElement(
 	        'button',
