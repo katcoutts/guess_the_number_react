@@ -8,3 +8,5 @@ Implement a single player game of Guess Who. MVP is to have a set of character c
 To run my version you will need to do an npm install in both the top level folder and in client. Then run webpack -w from within client and also node server.js from within the guess-who-react folder.
 
 <img width="1214" alt="screen shot 2016-10-22 at 06 45 23" src="https://cloud.githubusercontent.com/assets/17859815/19617250/e8634642-9823-11e6-81a1-83bae1bf4bc7.png">
+
+<img width="1188" alt="screen shot 2016-10-22 at 06 57 48" src="https://cloud.githubusercontent.com/assets/17859815/19617307/f36568b2-9824-11e6-8fcf-72bf5f32118d.png">
