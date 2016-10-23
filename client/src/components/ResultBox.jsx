@@ -32,12 +32,19 @@ var ResultBox = React.createClass({
     }
   },
 
+  updateForRightAnswer: function(){
+    var bitToUpdate = document.querySelector('.guessBit');
+    bitToUpdate.style.display = "none";
+  },
+
   render: function() {
     return (
       <div className="result-box">
-        <h2>Make a guess</h2>
-        <GuessBox answerNumber = {this.state.answerNumber} getResult = {this.workOutResult}/>
-        <ResultText result = {this.state.result}/>
+        <div className="guessBit">
+          <h2>Make a guess</h2>
+          <GuessBox answerNumber = {this.state.answerNumber} getResult = {this.workOutResult}/>
+        </div>
+        <ResultText rightAnswer = {this.updateForRightAnswer} answerNumber = {this.state.answerNumber} result = {this.state.result}/>
       </div>
       )
   }

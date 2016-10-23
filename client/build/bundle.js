@@ -19827,6 +19827,7 @@
 	  },
 	
 	  render: function render() {
+	
 	    return React.createElement(
 	      'div',
 	      null,
@@ -19835,8 +19836,12 @@
 	        null,
 	        'Guess The Number'
 	      ),
-	      React.createElement(NumbersList, { numbers: this.state.numbers }),
-	      React.createElement(ClueBox, { numbers: this.state.numbers, answerNumber: this.state.answerNumber }),
+	      React.createElement(
+	        'div',
+	        { className: 'to-hide-on-correct-answer' },
+	        React.createElement(NumbersList, { className: 'numberList', numbers: this.state.numbers }),
+	        React.createElement(ClueBox, { numbers: this.state.numbers, answerNumber: this.state.answerNumber })
+	      ),
 	      React.createElement(ResultBox, { answerNumber: this.state.answerNumber }),
 	      React.createElement(
 	        'button',
@@ -20107,17 +20112,26 @@
 	    }
 	  },
 	
+	  updateForRightAnswer: function updateForRightAnswer() {
+	    var bitToUpdate = document.querySelector('.guessBit');
+	    bitToUpdate.style.display = "none";
+	  },
+	
 	  render: function render() {
 	    return React.createElement(
 	      'div',
 	      { className: 'result-box' },
 	      React.createElement(
-	        'h2',
-	        null,
-	        'Make a guess'
+	        'div',
+	        { className: 'guessBit' },
+	        React.createElement(
+	          'h2',
+	          null,
+	          'Make a guess'
+	        ),
+	        React.createElement(GuessBox, { answerNumber: this.state.answerNumber, getResult: this.workOutResult })
 	      ),
-	      React.createElement(GuessBox, { answerNumber: this.state.answerNumber, getResult: this.workOutResult }),
-	      React.createElement(ResultText, { result: this.state.result })
+	      React.createElement(ResultText, { rightAnswer: this.updateForRightAnswer, answerNumber: this.state.answerNumber, result: this.state.result })
 	    );
 	  }
 	
@@ -20129,26 +20143,46 @@
 /* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	var React = __webpack_require__(1);
+	var ResponseDetail = __webpack_require__(170);
 	
 	var ResultText = function ResultText(props) {
 	
 	  console.log("props.response of ResultText is", props.result);
+	  console.log("result text has answer of", props.answerNumber);
 	
 	  if (!props.result) {
 	    return React.createElement(
-	      "h4",
+	      'h4',
 	      null,
-	      "  "
+	      '  '
 	    );
 	  }
 	
+	  if (props.result === "You're Wrong") {
+	    return React.createElement(
+	      'h2',
+	      null,
+	      props.result
+	    );
+	  }
+	
+	  if (props.result === "You're Right") {
+	    console.log('right answer called');
+	    props.rightAnswer();
+	  }
+	
 	  return React.createElement(
-	    "h2",
-	    { className: "response-text" },
-	    props.result
+	    'div',
+	    null,
+	    React.createElement(
+	      'h2',
+	      { className: 'response-text' },
+	      props.result
+	    ),
+	    React.createElement(ResponseDetail, { answerNumber: props.answerNumber })
 	  );
 	};
 	
@@ -20255,6 +20289,81 @@
 		}
 	}());
 
+
+/***/ },
+/* 169 */,
+/* 170 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var ResponseDetail = function ResponseDetail(props) {
+	
+	  if (!props.answerNumber) {
+	    return React.createElement(
+	      'p',
+	      null,
+	      ' " "'
+	    );
+	  }
+	
+	  return React.createElement(
+	    'div',
+	    null,
+	    React.createElement(
+	      'h4',
+	      null,
+	      'Is ',
+	      props.answerNumber.id,
+	      ' a prime number?: ',
+	      props.answerNumber.primeQ
+	    ),
+	    React.createElement(
+	      'h4',
+	      null,
+	      'Is ',
+	      props.answerNumber.id,
+	      ' an odd number?: ',
+	      props.answerNumber.oddQ
+	    ),
+	    React.createElement(
+	      'h4',
+	      null,
+	      'Is ',
+	      props.answerNumber.id,
+	      ' divisible by 3?: ',
+	      props.answerNumber.threeQ
+	    ),
+	    React.createElement(
+	      'h4',
+	      null,
+	      'Is the square root of ',
+	      props.answerNumber.id,
+	      ' an integer?: ',
+	      props.answerNumber.squareRootQ
+	    ),
+	    React.createElement(
+	      'h4',
+	      null,
+	      'Does ',
+	      props.answerNumber.id,
+	      ' start with the letter S?: ',
+	      props.answerNumber.letterSQ
+	    ),
+	    React.createElement(
+	      'h4',
+	      null,
+	      'Is ',
+	      props.answerNumber.id,
+	      ' bigger than the number of sides in an octagon?: ',
+	      props.answerNumber.octagonQ
+	    )
+	  );
+	};
+	
+	module.exports = ResponseDetail;
 
 /***/ }
 /******/ ]);

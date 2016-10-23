@@ -25,7 +25,7 @@
   {
     "id": 9,
     "src": "./images/number_09.jpg",
-    "oddQ": "No",
+    "oddQ": "Yes",
     "threeQ": "Yes",
     "primeQ": "No",
     "squareRootQ": "Yes",

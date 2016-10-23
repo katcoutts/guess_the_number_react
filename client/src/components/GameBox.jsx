@@ -68,14 +68,16 @@ var GameBox = React.createClass({
   },
 
 
-
   render: function() {
+    
     return (
       <div>
         <h1>Guess The Number</h1>
-        <NumbersList numbers = {this.state.numbers} />
-        <ClueBox numbers = {this.state.numbers} answerNumber = {this.state.answerNumber} />
-        <ResultBox answerNumber = {this.state.answerNumber} />
+          <div className="to-hide-on-correct-answer">
+            <NumbersList className = "numberList" numbers = {this.state.numbers} />
+            <ClueBox numbers = {this.state.numbers} answerNumber = {this.state.answerNumber} />
+          </div>
+        <ResultBox answerNumber = {this.state.answerNumber}/>
         <button onClick={this.handleClick} className="new-game-button">New Game</button>
       </div>
       )
