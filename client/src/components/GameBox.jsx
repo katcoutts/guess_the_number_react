@@ -12,6 +12,21 @@ var GameBox = React.createClass({
     }
   },
 
+  shuffle: function(array){
+      var rand, index = -1,
+        length = array.length,
+        result = Array(length);
+      while (++index < length) {
+        rand = Math.floor(Math.random() * (index + 1));
+        result[index] = result[rand];
+        result[rand] = array[index];
+      }
+      console.log("result of shuffle", result)
+      var numbersForThisGame = result.slice(0, 9);
+      this.setState({numbers: numbersForThisGame});
+      return numbersForThisGame;
+  },
+
   componentDidMount: function() {
     var url = "api/numbers";
     var request = new XMLHttpRequest();
@@ -19,7 +34,7 @@ var GameBox = React.createClass({
     request.onload = function() {
       console.log(request.responseText);
       var data = JSON.parse(request.responseText);
-      this.setState({ numbers: data });
+      this.setState({ numbers: data});
     }.bind(this);
     request.send();
   },
@@ -32,6 +47,7 @@ var GameBox = React.createClass({
   componentDidUpdate: function(){
     console.log("componentDidUpdate has been called")
     if (!this.state.answerNumber){
+      this.shuffle(this.state.numbers);
       var chosenNumber = this.state.numbers[Math.floor(Math.random()*this.state.numbers.length)];
       console.log("chosenNumber is ", chosenNumber)
       this.updateAnswerNumber(chosenNumber);

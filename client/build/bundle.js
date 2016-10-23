@@ -19770,6 +19770,22 @@
 	    };
 	  },
 	
+	  shuffle: function shuffle(array) {
+	    var rand,
+	        index = -1,
+	        length = array.length,
+	        result = Array(length);
+	    while (++index < length) {
+	      rand = Math.floor(Math.random() * (index + 1));
+	      result[index] = result[rand];
+	      result[rand] = array[index];
+	    }
+	    console.log("result of shuffle", result);
+	    var numbersForThisGame = result.slice(0, 9);
+	    this.setState({ numbers: numbersForThisGame });
+	    return numbersForThisGame;
+	  },
+	
 	  componentDidMount: function componentDidMount() {
 	    var url = "api/numbers";
 	    var request = new XMLHttpRequest();
@@ -19790,6 +19806,7 @@
 	  componentDidUpdate: function componentDidUpdate() {
 	    console.log("componentDidUpdate has been called");
 	    if (!this.state.answerNumber) {
+	      this.shuffle(this.state.numbers);
 	      var chosenNumber = this.state.numbers[Math.floor(Math.random() * this.state.numbers.length)];
 	      console.log("chosenNumber is ", chosenNumber);
 	      this.updateAnswerNumber(chosenNumber);
