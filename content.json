@@ -97,8 +97,62 @@
     "squareRootQ": "No",
     "letterSQ": "No",
     "octagonQ": "Yes"
-  }
+  },
 
+  {
+    "id": 25,
+    "src": "./images/number_25.jpg",
+    "oddQ": "Yes",
+    "threeQ": "No",
+    "primeQ": "No",
+    "squareRootQ": "Yes",
+    "letterSQ": "No",
+    "octagonQ": "Yes"
+  },
+
+  {
+    "id": 27,
+    "src": "./images/number_27.jpg",
+    "oddQ": "Yes",
+    "threeQ": "Yes",
+    "primeQ": "No",
+    "squareRootQ": "No",
+    "letterSQ": "No",
+    "octagonQ": "Yes"
+  },  
+
+  {
+    "id": 14,
+    "src": "./images/number_14.jpg",
+    "oddQ": "No",
+    "threeQ": "No",
+    "primeQ": "No",
+    "squareRootQ": "No",
+    "letterSQ": "No",
+    "octagonQ": "Yes"
+  }, 
+
+  {
+    "id": 33,
+    "src": "./images/number_33.jpg",
+    "oddQ": "Yes",
+    "threeQ": "Yes",
+    "primeQ": "No",
+    "squareRootQ": "No",
+    "letterSQ": "No",
+    "octagonQ": "Yes"
+  }, 
+
+ {
+    "id": 29,
+    "src": "./images/number_29.jpg",
+    "oddQ": "Yes",
+    "threeQ": "No",
+    "primeQ": "Yes",
+    "squareRootQ": "No",
+    "letterSQ": "No",
+    "octagonQ": "Yes"
+  }
 
 
 ]
