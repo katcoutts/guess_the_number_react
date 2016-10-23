@@ -2,7 +2,7 @@
 
   {
     "id": 19,
-    "src": "./images/number_19.jpg",
+    "src": "/images/number_19.jpg",
     "oddQ": "Yes",
     "threeQ": "No",
     "primeQ": "Yes",
@@ -13,7 +13,7 @@
 
   {
     "id": 8,
-    "src": "./images/number_08.jpg",
+    "src": "/images/number_08.jpg",
     "oddQ": "No",
     "threeQ": "No",
     "primeQ": "No",
@@ -24,7 +24,7 @@
 
   {
     "id": 9,
-    "src": "./images/number_09.jpg",
+    "src": "/images/number_09.jpg",
     "oddQ": "Yes",
     "threeQ": "Yes",
     "primeQ": "No",
@@ -35,7 +35,7 @@
 
   {
     "id": 7,
-    "src": "./images/number_07.jpg",
+    "src": "/images/number_07.jpg",
     "oddQ": "Yes",
     "threeQ": "No",
     "primeQ": "Yes",
@@ -46,7 +46,7 @@
 
   {
     "id": 16,
-    "src": "./images/number_16.jpg",
+    "src": "/images/number_16.jpg",
     "oddQ": "No",
     "threeQ": "No",
     "primeQ": "No",
@@ -57,7 +57,7 @@
 
   {
     "id": 1,
-    "src": "./images/number_01.jpg",
+    "src": "/images/number_01.jpg",
     "oddQ": "Yes",
     "threeQ": "No",
     "primeQ": "No",
@@ -68,7 +68,7 @@
 
   {
     "id": 70,
-    "src": "./images/number_70.jpg",
+    "src": "/images/number_70.jpg",
     "oddQ": "No",
     "threeQ": "No",
     "primeQ": "No",
@@ -79,7 +79,7 @@
 
   {
     "id": 18,
-    "src": "./images/number_18.jpg",
+    "src": "/images/number_18.jpg",
     "oddQ": "No",
     "threeQ": "Yes",
     "primeQ": "No",
@@ -90,7 +90,7 @@
 
   {
     "id": 21,
-    "src": "./images/number_21.jpg",
+    "src": "/images/number_21.jpg",
     "oddQ": "Yes",
     "threeQ": "Yes",
     "primeQ": "No",
@@ -101,7 +101,7 @@
 
   {
     "id": 25,
-    "src": "./images/number_25.jpg",
+    "src": "/images/number_25.jpg",
     "oddQ": "Yes",
     "threeQ": "No",
     "primeQ": "No",
@@ -112,7 +112,7 @@
 
   {
     "id": 27,
-    "src": "./images/number_27.jpg",
+    "src": "/images/number_27.jpg",
     "oddQ": "Yes",
     "threeQ": "Yes",
     "primeQ": "No",
@@ -123,7 +123,7 @@
 
   {
     "id": 14,
-    "src": "./images/number_14.jpg",
+    "src": "/images/number_14.jpg",
     "oddQ": "No",
     "threeQ": "No",
     "primeQ": "No",
@@ -134,7 +134,7 @@
 
   {
     "id": 33,
-    "src": "./images/number_33.jpg",
+    "src": "/images/number_33.jpg",
     "oddQ": "Yes",
     "threeQ": "Yes",
     "primeQ": "No",
@@ -145,11 +145,44 @@
 
  {
     "id": 29,
-    "src": "./images/number_29.jpg",
+    "src": "/images/number_29.jpg",
     "oddQ": "Yes",
     "threeQ": "No",
     "primeQ": "Yes",
     "squareRootQ": "No",
+    "letterSQ": "No",
+    "octagonQ": "Yes"
+  },
+
+ {
+    "id": 32,
+    "src": "/images/number_32.jpg",
+    "oddQ": "No",
+    "threeQ": "No",
+    "primeQ": "No",
+    "squareRootQ": "No",
+    "letterSQ": "No",
+    "octagonQ": "Yes"
+  },
+
+ {
+    "id": 6,
+    "src": "/images/number_06.jpg",
+    "oddQ": "No",
+    "threeQ": "Yes",
+    "primeQ": "No",
+    "squareRootQ": "No",
+    "letterSQ": "Yes",
+    "octagonQ": "No"
+  },
+
+ {
+    "id": 36,
+    "src": "/images/number_36.jpg",
+    "oddQ": "No",
+    "threeQ": "Yes",
+    "primeQ": "No",
+    "squareRootQ": "Yes",
     "letterSQ": "No",
     "octagonQ": "Yes"
   }
