@@ -11,7 +11,7 @@ var ClueAnswerBox = function( props ) {
 
 
   return (
-    <h3 id="clue-response">{props.response}</h3>
+    <h2 id="clue-response">{props.response}</h2>
   )
 
 

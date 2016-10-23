@@ -20063,7 +20063,7 @@
 	  }
 	
 	  return React.createElement(
-	    "h3",
+	    "h2",
 	    { id: "clue-response" },
 	    props.response
 	  );
