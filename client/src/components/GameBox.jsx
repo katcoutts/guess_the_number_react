@@ -12,6 +12,7 @@ var GameBox = React.createClass({
     }
   },
 
+// shuffle function taken from stackoverflow http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   shuffle: function(array){
       var rand, index = -1,
         length = array.length,
@@ -21,10 +22,21 @@ var GameBox = React.createClass({
         result[index] = result[rand];
         result[rand] = array[index];
       }
-      console.log("result of shuffle", result)
-      var numbersForThisGame = result.slice(0, 9);
-      this.setState({numbers: numbersForThisGame});
-      return numbersForThisGame;
+      this.getGameNumbers(result, 0, 9);
+      return result;
+  },
+
+  getGameNumbers: function(array, num1, num2){
+    console.log("result of shuffle", array)
+    var numbersForThisGame = array.slice(num1, num2);
+    this.setState({numbers: numbersForThisGame});
+    this.selectAnswerNumber(numbersForThisGame);
+  },
+
+  selectAnswerNumber: function(array){
+    var chosenNumber = array[Math.floor(Math.random()*array.length)];
+    this.updateAnswerNumber(chosenNumber);
+    console.log("chosenNumber is ", chosenNumber)
   },
 
   componentDidMount: function() {
@@ -48,9 +60,6 @@ var GameBox = React.createClass({
     console.log("componentDidUpdate has been called")
     if (!this.state.answerNumber){
       this.shuffle(this.state.numbers);
-      var chosenNumber = this.state.numbers[Math.floor(Math.random()*this.state.numbers.length)];
-      console.log("chosenNumber is ", chosenNumber)
-      this.updateAnswerNumber(chosenNumber);
     }
   },
 
