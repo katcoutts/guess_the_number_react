@@ -2,6 +2,7 @@ var React = require('react');
 var NumbersList = require('./NumbersList.jsx');
 var ClueBox = require('./ClueBox.jsx');
 var ResultBox = require('./ResultBox.jsx');
+var _ = require('lodash');
 
 var GameBox = React.createClass({
 
@@ -13,17 +14,22 @@ var GameBox = React.createClass({
   },
 
 // shuffle function taken from stackoverflow http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  // shuffle: function(array){
+  //     var rand, index = -1,
+  //       length = array.length,
+  //       result = Array(length);
+  //     while (++index < length) {
+  //       rand = Math.floor(Math.random() * (index + 1));
+  //       result[index] = result[rand];
+  //       result[rand] = array[index];
+  //     }
+  //     this.getGameNumbers(result, 0, 9);
+  //     return result;
+  // },
+
   shuffle: function(array){
-      var rand, index = -1,
-        length = array.length,
-        result = Array(length);
-      while (++index < length) {
-        rand = Math.floor(Math.random() * (index + 1));
-        result[index] = result[rand];
-        result[rand] = array[index];
-      }
-      this.getGameNumbers(result, 0, 9);
-      return result;
+    var shuffledArray = _.shuffle(array);
+    this.getGameNumbers(shuffledArray, 0, 9);
   },
 
   getGameNumbers: function(array, num1, num2){
